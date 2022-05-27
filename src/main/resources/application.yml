@@ -15,7 +15,8 @@ spring:
       relyingparty:
         registration:
           samlexample:
-            entity-id: codetinkering.com
+            entity-id: www.britymail.com
+#            entity-id: "{baseUrl}/saml2/service-provider-metadata/{registrationId}"
             acs:
               - location: "{baseUrl}/login/saml2/sso/{registrationId}"
             signing:
@@ -27,7 +28,7 @@ spring:
                 - private-key-location: "classpath:credentials/private.key"
                   certificate-location: "classpath:credentials/public.cer"
             identityprovider:
-              entity-id: codetinkering.com
+              entity-id: smartoffice.kukdo.com
 #              metadata-uri: http://localhost:8081/sample-idp/saml/idp/metadata
               singlesignon:
                 sign-request: false
@@ -35,26 +36,3 @@ spring:
               verification:
                 credentials:
                   - certificate-location: "classpath:credentials/public.cer"
-
-#          samlexample:
-#            entity-id: codetinkering.com
-#            acs:
-#              - location: {baseUrl}/login/saml2/sso/{registrationId}
-#                binding: POST
-#            signing:
-#              credentials:
-#                - private-key-location: "classpath:credentials/private.key"
-#                  certificate-location: "classpath:credentials/public.cer"
-#            decryption:
-#              credentials:
-#                - private-key-location: "classpath:credentials/private.key"
-#                  certificate-location: "classpath:credentials/public.cer"
-#            identityprovider:
-#              entity-id: codetinkering.com
-#              metadata-uri: http://localhost:8081/sample-idp/saml/idp/metadata
-#              singlesignon:
-#                sign-request: false
-#                url: http://localhost:8081/sample-idp/saml/idp/select
-#              verification:
-#                credentials:
-#                  - "classpath:credentials/public.cer"

@@ -10,7 +10,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/saml2/**").permitAll()
+            .antMatchers("/login/saml2/**").permitAll()
             .antMatchers("/**").authenticated()
             .and()
             .saml2Login()
