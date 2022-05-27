@@ -32,9 +32,9 @@ spring:
               singlesignon:
                 sign-request: false
                 url: https://sso.britymail.com/sso/saml/SingleSignOnService
-#              verification:
-#                credentials:
-#                  - certificate: "classpath:credentials/public.cer"
+              verification:
+                credentials:
+                  - certificate-location: "classpath:credentials/public.cer"
 
 #          samlexample:
 #            entity-id: codetinkering.com
