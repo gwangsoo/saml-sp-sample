@@ -1,0 +1,60 @@
+server:
+  port: 8088
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.security.saml: INFO
+    org.opensaml.xmlsec: TRACE
+
+spring:
+  security:
+    saml2:
+      relyingparty:
+        registration:
+          samlexample:
+            entity-id: codetinkering.com
+            acs:
+              - location: "{baseUrl}/login/saml2/sso/{registrationId}"
+            signing:
+              credentials:
+                - private-key-location: "classpath:credentials/private.key"
+                  certificate-location: "classpath:credentials/public.cer"
+            decryption:
+              credentials:
+                - private-key-location: "classpath:credentials/private.key"
+                  certificate-location: "classpath:credentials/public.cer"
+            identityprovider:
+              entity-id: codetinkering.com
+#              metadata-uri: http://localhost:8081/sample-idp/saml/idp/metadata
+              singlesignon:
+                sign-request: false
+                url: https://sso.britymail.com/sso/saml/SingleSignOnService
+#              verification:
+#                credentials:
+#                  - certificate: "classpath:credentials/public.cer"
+
+#          samlexample:
+#            entity-id: codetinkering.com
+#            acs:
+#              - location: {baseUrl}/login/saml2/sso/{registrationId}
+#                binding: POST
+#            signing:
+#              credentials:
+#                - private-key-location: "classpath:credentials/private.key"
+#                  certificate-location: "classpath:credentials/public.cer"
+#            decryption:
+#              credentials:
+#                - private-key-location: "classpath:credentials/private.key"
+#                  certificate-location: "classpath:credentials/public.cer"
+#            identityprovider:
+#              entity-id: codetinkering.com
+#              metadata-uri: http://localhost:8081/sample-idp/saml/idp/metadata
+#              singlesignon:
+#                sign-request: false
+#                url: http://localhost:8081/sample-idp/saml/idp/select
+#              verification:
+#                credentials:
+#                  - "classpath:credentials/public.cer"
