@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AppController {
-    @GetMapping("/")
+    @GetMapping("/login/saml2/sso/ssoLogin.do")
     public String index() {
         return "index";
     }

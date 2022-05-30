@@ -1,24 +1,24 @@
 server:
-  port: 8088
+  port: 7080
 
 logging:
   level:
     root: DEBUG
-    org.springframework.web: INFO
-    org.springframework.security: INFO
-    org.springframework.security.saml: INFO
-    org.opensaml.xmlsec: TRACE
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.saml: DEBUG
+    org.opensaml.xmlsec: DEBUG
 
 spring:
   security:
     saml2:
       relyingparty:
         registration:
-          samlexample:
-            entity-id: www.britymail.com
+          samlple:
+            entity-id: www.stage.britymail.com
 #            entity-id: "{baseUrl}/saml2/service-provider-metadata/{registrationId}"
             acs:
-              - location: "{baseUrl}/login/saml2/sso/{registrationId}"
+              - location: "http://smartoffice.kukdo.com/saml2/authenticate/ssoLogin.do"
             signing:
               credentials:
                 - private-key-location: "classpath:credentials/private.key"
@@ -32,7 +32,7 @@ spring:
 #              metadata-uri: http://localhost:8081/sample-idp/saml/idp/metadata
               singlesignon:
                 sign-request: false
-                url: https://sso.britymail.com/sso/saml/SingleSignOnService
+                url: https://sso.stage.britymail.com/sso/saml/SingleSignOnService
               verification:
                 credentials:
-                  - certificate-location: "classpath:credentials/public.cer"
+                  - certificate-location: "classpath:credentials/vertication.cer"
