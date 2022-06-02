@@ -15,7 +15,7 @@ spring:
       relyingparty:
         registration:
           samlple:
-            entity-id: www.stage.britymail.com
+            entity-id: smartoffice.kukdo.com
 #            entity-id: "{baseUrl}/saml2/service-provider-metadata/{registrationId}"
             acs:
               - location: "http://smartoffice.kukdo.com/saml2/authenticate/ssoLogin.do"
@@ -28,10 +28,10 @@ spring:
                 - private-key-location: "classpath:credentials/private.key"
                   certificate-location: "classpath:credentials/public.cer"
             identityprovider:
-              entity-id: smartoffice.kukdo.com
+              entity-id: www.stage.britymail.com
 #              metadata-uri: http://localhost:8081/sample-idp/saml/idp/metadata
               singlesignon:
-                sign-request: false
+                sign-request: true
                 url: https://sso.stage.britymail.com/sso/saml/SingleSignOnService
               verification:
                 credentials:
